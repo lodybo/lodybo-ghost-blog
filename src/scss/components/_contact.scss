@@ -1,0 +1,58 @@
+.social,
+.mail-form {
+    @include span-columns(6);
+}
+
+.social-list {
+    list-style: none;
+    
+    .twitter,
+    .linkedin,
+    .github {
+        a {
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+        
+        a:before {
+            font-family: "FontAwesome";
+            margin-right: .5em;
+            transition: color .2s ease;
+        }
+    }
+    
+    .twitter a {
+        &:before {
+            content: "\f099";
+        }
+        
+        &:hover:before {
+            color: color("twitter");
+        }
+    }
+    
+    .linkedin a {
+        &:before {
+            content: "\f0e1";
+        }
+        
+        &:hover:before {
+            color: color("linkedin");
+        }
+    }
+    
+    .github a {
+        &:before {
+            content: "\f09b";
+        }
+        
+        &:hover:before {
+            color: color("github");
+        }
+    }
+}
+
+.submit {
+    display: block;
+    margin-top: 1.5em;
+}

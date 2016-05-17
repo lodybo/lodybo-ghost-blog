@@ -1,0 +1,20 @@
+/*
+ * Table of Contents for Settings/
+ * This folder contains util SCSS
+*/
+
+// Wordpress banner has to be first
+@import "banner";
+
+// Normalize!
+@import "normalize";
+
+// Variables, such as color codes, font-families and such
+@import "variables";
+
+// Additional functionality
+@import "functions";
+
+// Import Bourbon and Neat
+@import "bourbon";
+@import "neat";

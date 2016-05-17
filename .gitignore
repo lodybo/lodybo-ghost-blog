@@ -1,0 +1,4 @@
+node_modules/
+assets/heroku-configured-ghost/node_modules
+build/
+dist/

@@ -1,0 +1,89 @@
+// Functions
+
+/// Get a color from the color maps
+/// @access public
+/// @group colors
+/// @param {String} $color - the name of the color to search for in any of the color maps
+/// @return {Color} Returns the found color or an error if the color is not found. 
+@function color($color) {
+  // Let's see if the primary map has our $color
+  @if (map-has-key($colors, $color)) {
+    @return map-get($colors, $color);
+  }
+  @else
+  {
+    // No, it hasn't. Maybe our UI map?
+    @if (map-has-key($ui, $color))
+    {
+      // Get the human readable color name (string) from $ui
+      $color-name: map-get($ui, $color);
+        
+      // The UI map can have both color names and hex values, so first we'll need to see what we're dealing with
+      @if (type-of($color-name) == "string") {
+          // Return the value of that color name
+          @return map-get($colors, $color-name);
+      } @else {
+          @return $color-name;
+      }
+    }
+    @else
+    {
+      // Still nope. Display error..
+      @error "#{$color} not found in color collection";
+    }
+  }
+}
+
+/// Get a font from the fonts collection
+/// @group fonts
+/// @param {String} $font -  the name of the font to search for
+/// @return {String} The font name or collection 
+@function font($font) {
+  // First check if the font style is present in our fonts map
+  @if (map-has-key($fonts, $font)) {
+    @return map-get($fonts, $font);
+  }
+  @else {
+    // No, not present, display error..
+    @error "#{$font} style not found in fonts collection";
+  }
+}
+
+/// Slightly lighten a color
+/// @access public
+/// @group colors
+/// @param {String} $color - color to lighten, the name should be present in the color collection
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function lighten($color-name, $percentage) {
+  // First get the color from the collections
+  $c: color($color-name);
+  // Now manipulate color
+  @return mix(color("white"), $c, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @group colors
+/// @param {String} $color - color to darken, the name should be present in the color collection.
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function darken($color-name, $percentage) {
+  // First get the color from the collections
+  $c: color($color-name);
+  // Now manipulate color
+  @return mix(color("black"), $c, $percentage);
+}
+
+/// Slightly opacify a color
+/// @access public
+/// @group colors
+/// @param {String} $color - The color to opacify, the name should be present in the color collection
+/// @param {Number} $intensity - percentage of opacity
+/// @return {Color}
+@function opacify($color-name, $intensity) {
+  // First get the color from the color collection
+  $c: color($color-name);
+  // Now opacify it
+  @return transparentize($c, ($intensity / 100));
+}

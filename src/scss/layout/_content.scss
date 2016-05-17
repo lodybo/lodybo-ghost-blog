@@ -1,0 +1,12 @@
+.content {    
+    @include span-columns(8);
+	@include shift(.5);
+	@include pad();
+    
+    // height: 100%;
+
+    background-color: opacify("white", 25);
+	margin-top: 2.5%;
+    // margin-bottom: 2.5%;
+	padding-top: 0;
+}

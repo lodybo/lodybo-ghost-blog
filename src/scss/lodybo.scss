@@ -1,0 +1,13 @@
+/*
+ * Lodybo theme SCSS
+ * (C) 2015 Lody Borgers
+*/
+
+// Insert WP banner, functions, mixins, variables and other settings
+@import "settings/ToC";
+
+// Insert page layout items, such as menu, header, footer
+@import "layout/ToC";
+
+// Insert components
+@import "components/ToC";

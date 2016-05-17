@@ -1,0 +1,55 @@
+/**
+  * All the generic styles are declared here
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+.container {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h4,
+h5,
+h6 {
+  font-family: font("heading");
+}
+
+body {
+  background-color: lighten("container-background", 75);
+  color: color("copy");
+  font-family: font("body-copy");
+  height: 100%;
+}
+
+button,
+.btn {
+  border: 0;
+  padding: 10px;
+  background-color: lighten("button-background", 50);
+  color: color("button-copy");
+  font-family: font("button");
+  
+  transition: all .4s ease;
+  
+  &:hover {
+     background-color: lighten("button-background", 25); 
+     color: darken("button-copy", 25);
+  }
+}
+
+img {
+  max-width: 100%;
+}

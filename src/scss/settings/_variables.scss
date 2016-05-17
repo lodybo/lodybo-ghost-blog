@@ -1,0 +1,69 @@
+// Variables
+// All the fun things like colors and fonts and such.
+
+
+/// Primary color scheme
+/// @group colors 
+/// @prop {Color} lightblue [#72C9DD] - lightblue hue
+/// @prop {Color} paleblue [#5F7383] - paleblue hue
+/// @prop {Color} deepblue [#1C8AAF] - deepblue hue
+/// @prop {Color} darkbrown [#655250] - darkbrown hue
+/// @prop {Color} lightbrown [#DD8F3C] - lightbrown hue
+/// @prop {Color} darkred [#A7000D] - darkred hue
+/// @prop {Color} lightred [#C92027] - lightred hue
+/// @prop {Color} purple [#985291] - purple hue
+/// @prop {Color} green [#3D604E] - green hue
+/// @prop {Color} white [#FFFFFF] - white hue
+/// @prop {Color} black [#000000] - black hue
+$colors: (
+  "lightblue": #72C9DD,
+  "paleblue": #5F7383,
+  "deepblue": #1C8AAF,
+  "darkbrown": #655250,
+  "lightbrown": #DD8F3C,
+  "darkred": #A7000D,
+  "lightred": #C92027,
+  "purple": #985291,
+  "green": #3D604E,
+  "white": #FFFFFF,
+  "black": #000000
+);
+
+/// UI color scheme
+/// This scheme is used to color various user interface elements based on the primary color scheme
+/// @group colors
+/// @prop {Color} link [#72C9DD] - Links
+/// @prop {Color} link-visited [#5F7383] - Visited links
+/// @prop {Color} alert [#C92027] - Alerts, or danger
+/// @prop {Color} success [#3D604E] - Success
+/// @prop {Color} sidebar [#5F7383] - Main sidebar
+/// @prop {Color} container-background [#72C9DD] - Main background
+/// @prop {Color} copy [#000000] - Body copy
+$ui: (
+  "link": "lightblue",
+  "link-visited": "paleblue",
+  "alert": "lightred",
+  "success": "green",
+  "sidebar": "paleblue",
+  "container-background": "lightblue",
+  "copy": "black",
+  "menu-hover": "lightblue",
+  "button-background": "deepblue",
+  "button-background-success": "green",
+  "button-background-danger": "lightred",
+  "button-copy": "darkbrown",
+  "twitter": #55ACEE,
+  "linkedin": #0077B5,
+  "github": #4183C4
+);
+
+/// Font collection
+/// @group fonts
+/// @prop {Font} heading [Source Sans Pro, sans-serif] - Font family for all the headings and titles
+/// @prop {Font} body-copy [Roboto Slab, serif] - Body copy, like posts or articles or generic content
+/// @prop {Font} button [Source Sans Pro, sans-serif] - Font for the buttons
+$fonts : (
+  "heading": unquote("'Source Sans Pro', sans-serif"),
+  "body-copy": unquote("'Roboto Slab', serif"),
+  "button": unquote("'Source Sans Pro', sans-serif")
+);

@@ -1,0 +1,89 @@
+/**
+  * All the styles for the sidebar
+*/
+
+.sidebar {
+  @include span-columns(3);
+  background-color: lighten("sidebar", 10%);
+  height: 100%;
+  padding: 10px 35px;
+}
+
+.branding { 
+    text-align: center;
+    
+    h1 {
+        font-size: 3em;
+    }
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    .about,
+    .writings,
+    .contact {
+       text-decoration: none;
+       font-size: 1.5em;
+       
+       &:after {
+           font-family: "FontAwesome";
+           transition: all .4s ease;
+           opacity: 0;
+           margin-left: .5em;
+       }
+    }
+    
+    .about:after {
+        content: "\f007";
+    }
+    
+    .writings:after {
+        content: "\f02d";
+    }
+    
+    .contact:after {
+        content: "\f0e0";
+    }
+    
+    li {
+        display: block;
+        position: relative;
+    }
+    
+    p {
+        transition: all .4s ease;
+        
+        $red: red(color("menu-hover"));
+        $green: green(color("menu-hover"));
+        $blue: blue(color("menu-hover"));
+        
+        background-color: rgba($red, $green, $blue, 0);
+        background-size: 0%;
+        border-radius: .2em;
+        display: inline-block;
+        
+        padding: .5em 2em;
+        
+        margin: 0 0 0 -2em;
+    }
+    
+    p:hover {
+        $red: red(color("menu-hover"));
+        $green: green(color("menu-hover"));
+        $blue: blue(color("menu-hover"));
+        
+        margin-left: 0;
+        padding: .5em 2em;
+        background-color: rgba($red, $green, $blue, 1);
+        
+        .about:after,
+        .writings:after,
+        .contact:after {
+            margin-left: 1em;
+            opacity: 1;
+        }
+    }
+}
