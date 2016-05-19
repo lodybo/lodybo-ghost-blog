@@ -1,4 +1,10 @@
+# tool folders
 node_modules/
-assets/heroku-configured-ghost/
+assets/heroku-preconfigured-ghost/
+
+# development folders
 build/
 dist/
+
+# files
+npm-debug.log

@@ -102,46 +102,39 @@ module.exports = function(grunt) {
 
     // GENERIC
     clean: {
+			dist: "dist",
 	    build: "build",
 	    sassdoc: "docs/sassdoc",
-	    jsdoc: "docs/jsdoc"
+	    jsdoc: "docs/jsdoc",
+			ghost: "assets/heroku-preconfigured-ghost",
     },
     copy: {
-	    assets: {
+			ghost: {
+				expand: true,
+				cwd: "assets/heroku-preconfigured-ghost",
+				src: "**",
+				dest: "dist/"
+			},
+	    images: {
 		    files: [{
 			    expand: true,
 			    flatten: true,
-			    src: ["src/assets/**/*.js"],
-			    dest: "build/js"
-		    }, {
-			    expand: true,
-			    flatten: true,
-			    src: ["src/assets/**/*.css"],
-			    dest: "build/css"
-		    }, {
-			    expand: true,
-			    flatten: true,
-			    src: ["src/assets/**/*.jpg", "src/assets/**/*.jpeg", "src/assets/**/*.png"],
+			    src: ["assets/images/**/*.jpg", "assets/images/**/***/.jpeg", "assets/images/**/*.png"],
 			    dest: "build/assets/images"
 		    }]
 	    }
     },
-    php: {
-  	    server: {
-  		    options: {
-  			    port: "8080",
-  			    base: "build",
-  			    livereload: true,
-            open: true
-  		    }
-  	    },
-  	    docs : {
-  		    options: {
-  			    port: "4153", // stands for "DOC"
-  			    base: "docs/sassdoc"
-  		    }
-  	    }
-  	},
+    shell: {
+			"pull-ghost": {
+				command: "git clone https://github.com/lodybo/lodybo-ghost.git assets/heroku-preconfigured-ghost"
+			},
+			"install-ghost": {
+				command: ["cd dist/", "npm install --production"].join("&&")
+			},
+			"run-ghost": {
+				command: ["cd dist/", "npm start"].join("&&")
+			}
+		},
   	watch: {
   	    options: {
   		    livereload: true
@@ -162,6 +155,38 @@ module.exports = function(grunt) {
   });
 
   require('load-grunt-tasks')(grunt);
+	
+	// ***** GRUNT TASKS
+	grunt.registerTask("setup-ghost", function(run) {
+		// ["clean:dist", "clean:ghost", "shell:pull-ghost", "copy:ghost", "shell:install-ghost"]
+		
+		console.log("Setting up Ghost..");
+		
+		// First clean the dist and ghost folders
+		console.log("* Cleaning the dist/ and ghost/ folders");
+		grunt.task.run(["clean:dist", "clean:ghost"]);
+		
+		// Pull ghost from server
+		console.log("* Pulling Heroku-preconfigured Ghost instance from repo");
+		grunt.task.run(["shell:pull-ghost"]);
+		
+		// Copy Ghost instance to dist folder
+		console.log("* Copy Ghost instance to dist/ folder");
+		grunt.task.run(["copy:ghost"]);
+		
+		// Finally, install Ghost
+		console.log("* Running 'npm install --production' in dist/ folder");
+		grunt.task.run(["shell:install-ghost"]);
+		
+		// If run
+		if (run) {
+			console.log("Running Ghost locally in dev mode");
+			grunt.task.run(["shell:run-ghost"]);
+		}
+		
+		// Done
+		console.log("Done setting up Ghost..");
+	});
 
   grunt.registerTask("kit", function (mode) {
     if (mode) {
