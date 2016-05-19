@@ -1,4 +1,4 @@
 node_modules/
-assets/heroku-configured-ghost/node_modules
+assets/heroku-configured-ghost/
 build/
 dist/
