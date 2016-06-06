@@ -1,28 +1,6 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    // HTML
-  	codekit: {
-  	    html: {
-  		    files: [{
-  			    expand: true,
-  			    cwd: "src/kit/",
-  			    src: "*.kit",
-  			    dest: "build",
-  			    ext: ".php"
-  		    }]
-  		},
-  	    wp: {
-  		    files: [{
-  			    expand: true,
-  			    cwd: "src/kit/wp/",
-  			    src: "*.kit",
-  			    dest: "build",
-  			    ext: ".php"
-  		    }]
-  		}
-  	},
-
     // Sass
     sass: {
 	    options: {
@@ -31,7 +9,7 @@ module.exports = function(grunt) {
 	    },
 	    dist: {
 		    src: ["src/scss/lodybo.scss"],
-		    dest: "build/style.css"
+		    dest: "dist/content/themes/lodybo-theme/assets/css/styles.css"
 	    }
     },
     postcss: {
@@ -53,11 +31,11 @@ module.exports = function(grunt) {
 		    src: ["src/scss/**/*.scss"],
 		    options: {
 					dest: "docs/sassdoc/",
-                    groups: {
-                        "undefined": "General",
-                        "colors": "Colors",
-                        "fonts": "Fonts"
-                    }
+					groups: {
+							"undefined": "General",
+							"colors": "Colors",
+							"fonts": "Fonts"
+					}
 				}
     	}
     },
@@ -95,7 +73,7 @@ module.exports = function(grunt) {
 			    sourceMap: true
 		    },
 		    files: {
-			    "build/js/scripts.min.js" : ["src/js/scripts/*.js"]
+			    "dist/content/themes/lodybo-theme/assets/js/scripts.min.js" : ["src/js/scripts/*.js"]
 		    }
 	    }
     },
@@ -120,9 +98,19 @@ module.exports = function(grunt) {
 			    expand: true,
 			    flatten: true,
 			    src: ["assets/images/**/*.jpg", "assets/images/**/***/.jpeg", "assets/images/**/*.png"],
-			    dest: "build/assets/images"
+			    dest: "dist/assets/images"
 		    }]
-	    }
+	    },
+			templates: {
+				files: [
+					{
+						expand: true,
+						flatten: true,
+						src: ["templates/**/*.hbs"],
+						dest: "dist/content/themes/lodybo-theme"
+					}
+				]
+			}
     },
     shell: {
 			"pull-ghost": {
@@ -138,14 +126,6 @@ module.exports = function(grunt) {
   	watch: {
   	    options: {
   		    livereload: true
-  	    },
-  	    html: {
-  		    files: ["src/kit/*.kit"],
-  		    tasks: ["kit:html"]
-  	    },
-  	    wp: {
-  		    files: ["src/kit/wp/*.kit"],
-  		    tasks: ["kit:wp"]
   	    },
   	    scss: {
   		    files: ["src/**/*.scss"],
