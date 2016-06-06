@@ -168,14 +168,6 @@ module.exports = function(grunt) {
 		console.log("Done setting up Ghost..");
 	});
 
-  grunt.registerTask("kit", function (mode) {
-    if (mode) {
-      grunt.task.run(["codekit:" + mode]);
-    } else {
-      grunt.task.run(["codekit"]);
-    }
-  });
-
   grunt.registerTask("scss", ["scsslint", "sass", "postcss", "sassdoc"]);
 
   grunt.registerTask("js", ["test", "uglify"]);
@@ -204,7 +196,7 @@ module.exports = function(grunt) {
   grunt.registerTask("serve", ["php", "watch"]);
 
   grunt.registerTask("test", ["jshint"]);
-  grunt.registerTask("build", ["clean:build", "kit", "scss", "js", "copy"]);
+  grunt.registerTask("build", ["clean:build", "scss", "js", "copy:templates"]);
 
   grunt.registerTask("default", ["serve"]);
 
