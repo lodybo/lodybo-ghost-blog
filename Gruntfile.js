@@ -193,10 +193,10 @@ module.exports = function(grunt) {
 	  grunt.task.run(taskList);
   });
 
-  grunt.registerTask("serve", ["php", "watch"]);
+  grunt.registerTask("serve", ["watch"]);
 
   grunt.registerTask("test", ["jshint"]);
-  grunt.registerTask("build", ["clean:build", "scss", "js", "copy:templates"]);
+  grunt.registerTask("build", ["clean:build", "scss", "js","copy:images", "copy:templates"]);
 
   grunt.registerTask("default", ["serve"]);
 
