@@ -24,12 +24,32 @@
   </head>
 
   <body>
-    
-      <div class="container">
-        {{{body}}}
+    <div class="sidebar">
+      <div class="branding">
+        <h1>{{@blog.title}}</h1>
+        <p>{{@blog.description}}</p>
       </div>
 
-      <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-      {{ghost_foot}}
+      <ul class="menu">
+        <li>
+          <p><a class="about" href="#">About me</a></p>
+        </li>
+
+        <li>
+          <p><a class="writings" href="#">Writings</a></p>
+        </li>
+
+        <li>
+          <p><a class="contact" href="#">Contact</a></p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="content">
+      {{{body}}}
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    {{ghost_foot}}
   </body>
 </html>
