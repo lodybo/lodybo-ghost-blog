@@ -1,95 +1,92 @@
 .post {
-    
-    &.article .post-title a:after,
-    &.tutorial .post-title a:after,
-    &.video  .post-title a:after {
+    &.article .post-title a::after,
+    &.tutorial .post-title a::after,
+    &.video  .post-title a::after {
         font-family: "FontAwesome";
         margin-right: .5em;
         text-decoration: none;
         float: right;
         opacity: .5;
     }
-    
-    &.article .post-title a:after {
+
+    &.article .post-title a::after {
         content: "\f15c";
     }
-    
-    &.tutorial .post-title a:after {
+
+    &.tutorial .post-title a::after {
         content: "\f121";
     }
-    
-    &.video .post-title a:after {
+
+    &.video .post-title a::after {
         content: "\f04b";
     }
-    
-	.post-title {
-		font-size: 3em;
-		margin-bottom: 0;
-		text-transform: uppercase;
-	}
 
-	.post-meta {
-		list-style: none;
-		margin: 0;
-		padding: 0;
+    .post-title {
+        font-size: 3em;
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
 
-		.date,
+    .post-meta {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .date,
         .permalink {
-			display: inline;
-		}
-        
+            display: inline;
+        }
+
         a {
             color: color("copy");
             text-decoration: none;
             transition: all .2s ease;
         }
-        
-        
-	}
-    
-    .date a:before {
+    }
+
+    .date a::before {
         content: "\f017";
         font-family: "FontAwesome";
         margin-right: .5em;
     }
-    
+
     .date:hover {
         a {
             color: color("purple");
         }
-        
-        a:before {
+
+        a::before {
             color: color("green");
         }
     }
-    
-    .permalink a:before {
+
+    .permalink a::before {
         content: "\f0c1";
         font-family: "FontAwesome";
         margin-left: 1em;
         margin-right: .5em;
     }
-    
+
     .category {
-        &:before {
+        &::before {
             content: "\f02b";
             font-family: "FontAwesome";
             font-size: .9em;
             margin-right: .5em;
         }
-        
-        &.single:before {
+
+        &.single::before {
             content: "\f02b";
         }
-        
-        &.multiple:before {
+
+        &.multiple::before {
             content: "\f02c";
         }
-        
-        a:before {
+
+        a::before {
             content: "#";
         }
-        
+
         a {
             color: lighten("black", 25);
             font-size: .9em;

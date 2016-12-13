@@ -4,20 +4,19 @@
 /// @access public
 /// @group colors
 /// @param {String} $color - the name of the color to search for in any of the color maps
-/// @return {Color} Returns the found color or an error if the color is not found. 
+/// @return {Color} Returns the found color or an error if the color is not found.
 @function color($color) {
   // Let's see if the primary map has our $color
   @if (map-has-key($colors, $color)) {
     @return map-get($colors, $color);
-  }
-  @else
+  } @else
   {
     // No, it hasn't. Maybe our UI map?
     @if (map-has-key($ui, $color))
     {
       // Get the human readable color name (string) from $ui
       $color-name: map-get($ui, $color);
-        
+
       // The UI map can have both color names and hex values, so first we'll need to see what we're dealing with
       @if (type-of($color-name) == "string") {
           // Return the value of that color name
@@ -25,8 +24,7 @@
       } @else {
           @return $color-name;
       }
-    }
-    @else
+    } @else
     {
       // Still nope. Display error..
       @error "#{$color} not found in color collection";
@@ -37,13 +35,12 @@
 /// Get a font from the fonts collection
 /// @group fonts
 /// @param {String} $font -  the name of the font to search for
-/// @return {String} The font name or collection 
+/// @return {String} The font name or collection
 @function font($font) {
   // First check if the font style is present in our fonts map
   @if (map-has-key($fonts, $font)) {
     @return map-get($fonts, $font);
-  }
-  @else {
+  } @else {
     // No, not present, display error..
     @error "#{$font} style not found in fonts collection";
   }

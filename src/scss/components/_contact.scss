@@ -5,7 +5,7 @@
 
 .social-list {
     list-style: none;
-    
+
     .twitter,
     .linkedin,
     .github {
@@ -13,40 +13,40 @@
             text-decoration: none;
             font-size: 1.5em;
         }
-        
-        a:before {
+
+        a::before {
             font-family: "FontAwesome";
             margin-right: .5em;
             transition: color .2s ease;
         }
     }
-    
+
     .twitter a {
-        &:before {
+        &::before {
             content: "\f099";
         }
-        
-        &:hover:before {
+
+        &:hover::before {
             color: color("twitter");
         }
     }
-    
+
     .linkedin a {
-        &:before {
+        &::before {
             content: "\f0e1";
         }
-        
-        &:hover:before {
+
+        &:hover::before {
             color: color("linkedin");
         }
     }
-    
+
     .github a {
-        &:before {
+        &::before {
             content: "\f09b";
         }
-        
-        &:hover:before {
+
+        &:hover::before {
             color: color("github");
         }
     }

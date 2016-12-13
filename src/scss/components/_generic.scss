@@ -7,8 +7,8 @@ html {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -41,11 +41,11 @@ button,
   background-color: lighten("button-background", 50);
   color: color("button-copy");
   font-family: font("button");
-  
+
   transition: all .4s ease;
-  
+
   &:hover {
-     background-color: lighten("button-background", 25); 
+     background-color: lighten("button-background", 25);
      color: darken("button-copy", 25);
   }
 }

@@ -3,7 +3,7 @@
 
 
 /// Primary color scheme
-/// @group colors 
+/// @group colors
 /// @prop {Color} lightblue [#72C9DD] - lightblue hue
 /// @prop {Color} paleblue [#5F7383] - paleblue hue
 /// @prop {Color} deepblue [#1C8AAF] - deepblue hue
@@ -62,7 +62,7 @@ $ui: (
 /// @prop {Font} heading [Source Sans Pro, sans-serif] - Font family for all the headings and titles
 /// @prop {Font} body-copy [Roboto Slab, serif] - Body copy, like posts or articles or generic content
 /// @prop {Font} button [Source Sans Pro, sans-serif] - Font for the buttons
-$fonts : (
+$fonts: (
   "heading": unquote("'Source Sans Pro', sans-serif"),
   "body-copy": unquote("'Roboto Slab', serif"),
   "button": unquote("'Source Sans Pro', sans-serif")
