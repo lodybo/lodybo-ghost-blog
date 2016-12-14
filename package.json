@@ -1,6 +1,6 @@
 {
   "name": "lodybo-ghost",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Personal blog for Lodybo",
   "main": "index.js",
   "scripts": {

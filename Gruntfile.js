@@ -89,7 +89,7 @@ module.exports = function (grunt) {
 		copy: {
 			ghost: {
 				expand: true,
-				cwd: "assets/heroku-preconfigured-ghost",
+				cwd: "assets/heroku-preconfigured-ghost/ghost",
 				src: "**",
 				dest: "dist/"
 			},
