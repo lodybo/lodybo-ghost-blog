@@ -4,6 +4,7 @@
 
 .sidebar {
   @include span-columns(3);
+  @include omega();
   background-color: lighten("sidebar", 10%);
   height: 100%;
   padding: 10px 35px;
