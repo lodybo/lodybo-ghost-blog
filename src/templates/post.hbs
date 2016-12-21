@@ -6,28 +6,30 @@
     </div>
   {{/if}}
   <div class="content">
-    {{#has tag="#video, #tutorial"}}
-      {{#has tag="#video"}}
-        <div class="post video {{post_class}}">
-      {{else}}
-        {{#has tag="#tutorial"}}
-          <div class="post tutorial {{post_class}}">
+    <div class="page">
+      {{#has tag="#video, #tutorial"}}
+        {{#has tag="#video"}}
+          <div class="post video {{post_class}}">
+        {{else}}
+          {{#has tag="#tutorial"}}
+            <div class="post tutorial {{post_class}}">
+          {{/has}}
         {{/has}}
+      {{else}}
+        <div class="post article {{post_class}}">
       {{/has}}
-    {{else}}
-      <div class="post article {{post_class}}">
-    {{/has}}
-      <h1 class="post-title">
-        <a href="{{url}}">{{title}}</a>
-      </h1>
-      
-      <ul class="post-meta">
-        <li class="date">Published on {{date format="MMMM DD, YYYY"}}</li>
-        <li class="permalink"><a href="{{url}}">Permalink</a></li>
-        <li class="category">{{tags separator=", "}}</li>
-      </ul>
+        <h1 class="post-title">
+          <a href="{{url}}">{{title}}</a>
+        </h1>
+        
+        <ul class="post-meta">
+          <li class="date">Published on {{date format="MMMM DD, YYYY"}}</li>
+          <li class="permalink"><a href="{{url}}">Permalink</a></li>
+          <li class="category">{{tags separator=", "}}</li>
+        </ul>
 
-      {{content}}
+        {{content}}
+      </div>
     </div>
   </div>
 {{/post}}

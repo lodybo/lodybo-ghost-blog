@@ -1,3 +1,12 @@
+.page,
+.posts {
+    @include shift (.5);
+    @include pad();
+
+    background-color: opacify("white", 25);
+	margin-top: 2.5%;
+}
+
 .post {
     &.article .post-title a::after,
     &.tutorial .post-title a::after,
@@ -23,7 +32,7 @@
 
     .post-title {
         font-size: 3em;
-        margin-bottom: 0;
+        margin: 0;
         text-transform: uppercase;
     }
 
