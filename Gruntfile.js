@@ -50,21 +50,24 @@ module.exports = function (grunt) {
 		},
 
 		// JS
-		jshint: {
-			all: ["Gruntfile.js", "src/js/**/*.js"]
+		eslint: {
+			options: {
+				configFile: ".eslintrc.json"
+			},
+			target: ["src/js/**/*.js"]
 		},
-		jasmine: {
-			js: {
-				src: "src/js/scripts/*.js",
-				options: {
-					specs: "src/js/specs/*.js",
-					outfile: "test/jasmine/index.html",
-					vendor: [
-						"http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js",
-						"http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-resource.min.js",
-						"http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-mocks.js"
-					]
-				}
+		karma: {
+			options: {
+				configFile: "karma.conf.js",
+				browsers: ["PhantomJS"]
+			},
+			unit: {
+				autoWatch: false,
+				background: false,
+				singleRun: true
+			},
+			"unit-watch": {
+				autoWatch: true
 			}
 		},
 		uglify: {
@@ -134,6 +137,10 @@ module.exports = function (grunt) {
             handlebars: {
                 files: ["src/**/*.hbs"],
 				tasks: ["copy:templates"]
+			},
+			js: {
+				files: ["src/js/**/*.js"],
+				tasks: ["karma:unit"]
 			}
 		}
 	});
@@ -210,7 +217,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("serve", ["watch"]);
 
-	grunt.registerTask("test", ["jshint"]);
+	grunt.registerTask("test", ["eslint", "karma:unit"]);
 	grunt.registerTask("build", ["clean:build", "scss", "js", "copy:images", "copy:templates", "create-theme-package"]);
 
 	grunt.registerTask("default", ["serve"]);
