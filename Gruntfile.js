@@ -76,7 +76,7 @@ module.exports = function (grunt) {
 					sourceMap: true
 				},
 				files: {
-					"dist/content/themes/lodybo-theme/assets/js/scripts.min.js": ["src/js/scripts/*.js"]
+					"dist/content/themes/lodybo-theme/assets/js/scripts.min.js": ["src/js/*.js", "!src/js/*.spec.js"]
 				}
 			}
 		},
