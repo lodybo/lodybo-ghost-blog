@@ -6,6 +6,7 @@ assets/heroku-preconfigured-ghost/
 build/
 dist/
 docs/
+typings/
 
 # files
 npm-debug.log
