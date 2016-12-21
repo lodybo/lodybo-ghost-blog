@@ -51,10 +51,21 @@ module.exports = function (grunt) {
 
 		// JS
 		eslint: {
-			options: {
-				configFile: ".eslintrc.json"
+			production: {
+				options: {
+					configFile: ".eslintrc.json"
+				},
+				src: ["src/js/**/*.js"]
 			},
-			target: ["src/js/**/*.js"]
+			dev: {
+				options: {
+					configFile: ".eslintrc.json",
+					rules: {
+						"no-debugger": "off"
+					}
+				},
+				src: ["src/js/**/*.js"]
+			}
 		},
 		karma: {
 			options: {
@@ -71,9 +82,19 @@ module.exports = function (grunt) {
 			}
 		},
 		uglify: {
-			js: {
+			production: {
 				options: {
 					sourceMap: true
+				},
+				files: {
+					"dist/content/themes/lodybo-theme/assets/js/scripts.min.js": ["src/js/*.js", "!src/js/*.spec.js"]
+				}
+			},
+			dev: {
+				options: {
+					mangle: false,
+					compress: false,
+					beautify: true
 				},
 				files: {
 					"dist/content/themes/lodybo-theme/assets/js/scripts.min.js": ["src/js/*.js", "!src/js/*.spec.js"]
@@ -140,7 +161,7 @@ module.exports = function (grunt) {
 			},
 			js: {
 				files: ["src/js/**/*.js"],
-				tasks: ["karma:unit"]
+				tasks: ["eslint:dev" /*, "karma:unit"*/ , "uglify:dev"]
 			}
 		}
 	});
@@ -194,7 +215,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("scss", ["scsslint", "sass", "postcss", "sassdoc"]);
 
-	grunt.registerTask("js", ["test", "uglify"]);
+	grunt.registerTask("js", ["test", "uglify:production"]);
 
 	grunt.registerTask("docs", function (mode) {
 		var docList = ["sassdoc", "jsdoc"];
@@ -217,7 +238,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("serve", ["watch"]);
 
-	grunt.registerTask("test", ["eslint", "karma:unit"]);
+	grunt.registerTask("test", ["eslint:production" /*, "karma:unit"*/]);
 	grunt.registerTask("build", ["clean:build", "scss", "js", "copy:images", "copy:templates", "create-theme-package"]);
 
 	grunt.registerTask("default", ["serve"]);

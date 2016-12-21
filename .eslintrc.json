@@ -4,5 +4,8 @@
         "browser": true,
         "jquery": true,
         "jasmine": true
+    },
+    "rules": {
+        "no-debugger": "warn"
     }
 }
