@@ -28,6 +28,8 @@ h6 {
 }
 
 body {
+  @include outer-container(100%);
+
   background-color: lighten("container-background", 75);
   color: color("copy");
   font-family: font("body-copy");
