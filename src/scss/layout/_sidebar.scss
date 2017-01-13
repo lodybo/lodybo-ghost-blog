@@ -5,13 +5,14 @@
 .sidebar {
   @include span-columns(3);
   @include omega();
-  background-color: lighten("sidebar", 10%);
+  background-color: lighten("sidebar", 0);
   height: 100%;
   padding: 10px 35px;
 }
 
 .branding {
     text-align: center;
+    color: lighten("sidebar-text", 75);
 
     h1 {
         font-size: 3em;
@@ -49,12 +50,17 @@
         content: "\f0e0";
     }
 
+    a,
+    a:visited {
+        color: darken("sidebar-link", 50%);
+    }
+
     li {
         display: block;
         position: relative;
     }
 
-    p {
+    h3 {
         transition: all .4s ease;
 
         $red: red(color("menu-hover"));
@@ -66,24 +72,24 @@
         border-radius: .2em;
         display: inline-block;
 
-        padding: .5em 2em;
+        padding: .5em 1.25em;
 
-        margin: 0 0 0 -2em;
+        margin: 0 0 0 -1em;
     }
 
-    p:hover {
-        $red: red(color("menu-hover"));
-        $green: green(color("menu-hover"));
-        $blue: blue(color("menu-hover"));
+    h3:hover {
+        $red: red(lighten("menu-hover", 75%));
+        $green: green(lighten("menu-hover", 75%));
+        $blue: blue(lighten("menu-hover", 75%));
 
         margin-left: 0;
-        padding: .5em 2em;
+        padding: .5em 1.75em .5em 1em;
         background-color: rgba($red, $green, $blue, 1);
 
         .about::after,
         .writings::after,
         .contact::after {
-            margin-left: 1em;
+            margin-left: .75em;
             opacity: 1;
         }
     }

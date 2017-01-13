@@ -35,38 +35,29 @@
         margin: 0;
         text-transform: uppercase;
     }
+}
 
-    .post-meta {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+.post-meta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-        .date,
-        .permalink {
-            display: inline;
-        }
-
-        a {
-            color: color("copy");
-            text-decoration: none;
-            transition: all .2s ease;
-        }
+    .date,
+    .permalink {
+        display: inline;
     }
 
-    .date a::before {
+    a {
+        color: color("copy");
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+
+    .date span::before {
         content: "\f017";
         font-family: "FontAwesome";
-        margin-right: .5em;
-    }
-
-    .date:hover {
-        a {
-            color: color("purple");
-        }
-
-        a::before {
-            color: color("green");
-        }
+        margin-right: .2em;
+        margin-left: .2em;
     }
 
     .permalink a::before {
@@ -74,6 +65,16 @@
         font-family: "FontAwesome";
         margin-left: 1em;
         margin-right: .5em;
+    }
+
+    .permalink:hover {
+        a {
+            color: color("purple");
+        }
+
+        a::before {
+            color: color("green");
+        }
     }
 
     .category {
@@ -97,8 +98,18 @@
         }
 
         a {
-            color: lighten("black", 25);
-            font-size: .9em;
+            font-size: .95em;
+        }
+    }
+
+    .category:hover {
+        a {
+            color: color("purple");
+        }
+
+        &::before,
+        &::before {
+            color: color("green");
         }
     }
 }

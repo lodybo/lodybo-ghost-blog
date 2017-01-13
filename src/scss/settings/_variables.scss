@@ -40,11 +40,13 @@ $colors: (
 /// @prop {Color} container-background [#72C9DD] - Main background
 /// @prop {Color} copy [#000000] - Body copy
 $ui: (
-  "link": "lightblue",
-  "link-visited": "paleblue",
+  "link": "paleblue",
+  "link-visited": "purple",
   "alert": "lightred",
   "success": "green",
   "sidebar": "paleblue",
+  "sidebar-text": "lightblue",
+  "sidebar-link": "paleblue",
   "container-background": "lightblue",
   "copy": "black",
   "menu-hover": "lightblue",

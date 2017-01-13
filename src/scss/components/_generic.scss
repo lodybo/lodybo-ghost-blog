@@ -36,6 +36,15 @@ body {
   height: 100%;
 }
 
+a {
+  color: color("link");
+  text-decoration: none;
+}
+
+a:visited {
+  color: color("link-visited");
+}
+
 button,
 .btn {
   border: 0;
