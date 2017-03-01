@@ -13,4 +13,6 @@ Ghost will be downloaded into the `assets/` directory. It will also be copied to
 Ghost needs to run while developing, that can be done with the `grunt shell:run-ghost` command. Visit your fresh Ghost install on `localhost:2368`. 
 After that, `grunt serve` will watch when you develop any source files.
 
+Alternatively, you can run `grunt` or `grunt start` and it will run the two tasks defined above.
+
 Also, `grunt test` will run all the tests and `grunt build` will build build everything and move it to the `dist/` folder where we can preview.

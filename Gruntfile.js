@@ -163,6 +163,12 @@ module.exports = function (grunt) {
 				files: ["src/js/**/*.js"],
 				tasks: ["eslint:dev" /*, "karma:unit"*/ , "uglify:dev"]
 			}
+		},
+		concurrent: {
+			options: {
+                logConcurrentOutput: true
+            },
+			dev: ["shell:run-ghost", "serve"]
 		}
 	});
 
@@ -236,11 +242,12 @@ module.exports = function (grunt) {
 		grunt.task.run(taskList);
 	});
 
+	grunt.registerTask("start", ["concurrent:dev"]);
 	grunt.registerTask("serve", ["watch"]);
 
 	grunt.registerTask("test", ["eslint:production" /*, "karma:unit"*/]);
 	grunt.registerTask("build", ["clean:build", "scss", "js", "copy:images", "copy:templates", "create-theme-package"]);
 
-	grunt.registerTask("default", ["serve"]);
+	grunt.registerTask("default", ["concurrent:dev"]);
 
 };
