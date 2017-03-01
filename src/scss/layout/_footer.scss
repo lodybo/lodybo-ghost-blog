@@ -1,0 +1,15 @@
+footer {
+    @include row();
+
+    background-color: color("footer");
+    margin-top: 25px;
+
+    a {
+        color: darken("footer-link", 75%);
+    }
+
+    .wrapper {
+        @include span-columns(6);
+        @include shift(4);
+    }
+}

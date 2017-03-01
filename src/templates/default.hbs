@@ -24,30 +24,40 @@
   </head>
 
   <body>
-    <div class="sidebar js-sidebar">
-      <div class="branding">
-        <img src="{{asset 'images/ava.png'}}" />
-        <h1>{{@blog.title}}</h1>
-        <p>{{@blog.description}}</p>
+    <div class="container">
+      <div class="sidebar js-sidebar">
+        <div class="branding">
+          <img src="{{asset 'images/ava.png'}}" />
+          <h1>{{@blog.title}}</h1>
+          <p>{{@blog.description}}</p>
+        </div>
+
+        <ul class="menu">
+          <li>
+            <h3><a class="about" href="/">About me</a></h3>
+          </li>
+
+          <li>
+            <h3><a class="writings" href="/">Writings</a></h3>
+          </li>
+
+          <li>
+            <h3><a class="contact" href="/">Contact</a></h3>
+          </li>
+        </ul>
       </div>
 
-      <ul class="menu">
-        <li>
-          <h3><a class="about" href="/">About me</a></h3>
-        </li>
-
-        <li>
-          <h3><a class="writings" href="/">Writings</a></h3>
-        </li>
-
-        <li>
-          <h3><a class="contact" href="/">Contact</a></h3>
-        </li>
-      </ul>
+      {{{body}}}
     </div>
 
-    {{{body}}}
-
+    <footer>
+      <div class="wrapper">
+        <p class="copyright">(C) 2017 Lodybo, all rights reserved.</p>
+        <p>
+          <a href="lodybo.nl">Wanna know more about me?</a>
+        </p>
+      </div>
+    </footer>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script type="text/javascript" src="{{asset 'js/scripts.min.js'}}"></script>
     {{ghost_foot}}
