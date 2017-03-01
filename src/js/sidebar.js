@@ -6,8 +6,17 @@
  */
 (function ($) {
     function resizeSidebar() {
-        var content = $(".js-content");
         var sidebar = $(".js-sidebar");
+
+        if (window.innerWidth < 800) {
+            if (sidebar.height() != 140) {
+                sidebar.height(140);
+            }
+            
+            return;
+        }
+
+        var content = $(".js-content");
 
         var contentTop = content.offset().top;
         var contentHeight = content.height();
