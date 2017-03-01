@@ -5,13 +5,20 @@
  * So we'll capture the height of the page, and feed that to the sidebar
  */
 (function ($) {
-    var $document = $(document);
-    var sidebar = $(".js-sidebar");
-
     function resizeSidebar() {
-        sidebar.height($document.height());
+        var content = $(".js-content");
+        var sidebar = $(".js-sidebar");
+
+        var contentTop = content.offset().top;
+        var contentHeight = content.height();
+
+        sidebar.innerHeight(contentTop + contentHeight);
     }
 
-    resizeSidebar();
-    window.addEventListener("resize", resizeSidebar);
+    $(document).ready(function () {
+        resizeSidebar();
+        $(window).resize(resizeSidebar);
+    });
+
+    $(window).on("load", resizeSidebar);
 })($);
