@@ -20,7 +20,7 @@
     margin-bottom: 10px;
 
     h1 {
-        font-size: 2em;
+        font-size: 1.5em;
         display: inline;
     }
 
@@ -29,7 +29,9 @@
     }
 
     img {
-        height: 75px;
+        height: 30px;
+        margin-right: 10px;
+        vertical-align: sub;
     }
 
     @media(min-width: 800px) {
@@ -39,6 +41,8 @@
 
         img {
             height: auto;
+            margin-right: 0;
+            vertical-align: initial;
         }
 
         h1 {
@@ -48,6 +52,18 @@
 
         p {
             display: block;
+        }
+    }
+
+    @media (min-width: 300px) {
+        h1 {
+            font-size: 2em;
+        }
+    }
+
+    @media (max-width: 240px) {
+        h1 {
+            font-size: 1em;
         }
     }
 }
@@ -71,7 +87,7 @@
     }
 
     li {
-        display: inline;
+        display: block;
         position: relative;
         margin-right: 15px;
 
@@ -92,8 +108,33 @@
         border-radius: .2em;
         display: inline-block;
 
-        padding: 0;
+        padding: 0.25em;
         margin: 0;
+
+        &:hover {
+            $red: red(lighten("menu-hover", 75%));
+            $green: green(lighten("menu-hover", 75%));
+            $blue: blue(lighten("menu-hover", 75%));
+
+            margin-left: 0;
+            background-color: rgba($red, $green, $blue, 1);
+        }
+    }
+
+    @media (min-width: 300px) {
+        h3 {
+            padding: 0.2em;
+        }
+    }
+
+    @media(min-width: 350px) {
+        h3 {
+            padding: 0.5em 0.25em;
+        }
+
+        li {
+            display: inline;
+        }
     }
 
     @media(min-width: 800px) {
@@ -120,14 +161,6 @@
         }
 
         h3:hover {
-            $red: red(lighten("menu-hover", 75%));
-            $green: green(lighten("menu-hover", 75%));
-            $blue: blue(lighten("menu-hover", 75%));
-
-            margin-left: 0;
-            padding: .5em 1.75em .5em 1em;
-            background-color: rgba($red, $green, $blue, 1);
-
             .about::after,
             .writings::after,
             .contact::after {

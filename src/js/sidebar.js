@@ -9,8 +9,14 @@
         var sidebar = $(".js-sidebar");
 
         if (window.innerWidth < 800) {
-            if (sidebar.height() != 140) {
-                sidebar.height(140);
+            if (window.innerWidth < 350) {
+                if (sidebar.height() != 130) {
+                    sidebar.height(130);
+                }
+            } else {
+                if (sidebar.height() != 100) {
+                    sidebar.height(100);
+                }
             }
             
             return;
