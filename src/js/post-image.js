@@ -17,6 +17,11 @@
         var sidebar = $(".js-sidebar");
         var $window = $(window);
 
+        if ($window.width() < 800) {
+            postImageWrapper.width($window.width());
+            return;
+        }
+
         // The "+1" is there because the sidebar width is calculated using percentages. jQuery returns the width as a rounded-down number, so we'll round up manually.
         var sidebarWidth = sidebar.innerWidth() + 1;
         var windowWidth = $window.innerWidth();
