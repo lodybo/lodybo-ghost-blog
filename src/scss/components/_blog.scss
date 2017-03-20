@@ -1,10 +1,14 @@
 .page,
 .posts {
-    @include shift (.5);
-    @include pad();
-
     background-color: opacify("white", 25);
 	margin-top: 2.5%;
+    @include pad();
+    margin: 4%;
+
+    @media(min-width: 800px) {
+        margin: 0;
+        margin-left: 4%;
+    }
 }
 
 .post {
