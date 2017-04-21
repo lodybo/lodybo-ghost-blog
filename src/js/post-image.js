@@ -14,7 +14,7 @@
     
     function resizePostImage() {
         var postImageWrapper = $(".js-post-image-wrapper");
-        var sidebar = $(".js-sidebar");
+        var navbar = $(".js-navbar");
         var $window = $(window);
 
         if ($window.width() < 800) {
@@ -22,11 +22,11 @@
             return;
         }
 
-        // The "+1" is there because the sidebar width is calculated using percentages. jQuery returns the width as a rounded-down number, so we'll round up manually.
-        var sidebarWidth = sidebar.innerWidth() + 1;
+        // The "+1" is there because the navbar width is calculated using percentages. jQuery returns the width as a rounded-down number, so we'll round up manually.
+        var navbarWidth = navbar.innerWidth() + 1;
         var windowWidth = $window.innerWidth();
 
-        var availableScreenWidth = windowWidth - sidebarWidth;
+        var availableScreenWidth = windowWidth - navbarWidth;
         postImageWrapper.width(availableScreenWidth);
     }
 })($);

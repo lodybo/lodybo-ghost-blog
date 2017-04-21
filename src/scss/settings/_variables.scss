@@ -36,7 +36,7 @@ $colors: (
 /// @prop {Color} link-visited [#5F7383] - Visited links
 /// @prop {Color} alert [#C92027] - Alerts, or danger
 /// @prop {Color} success [#3D604E] - Success
-/// @prop {Color} sidebar [#5F7383] - Main sidebar
+/// @prop {Color} navbar [#5F7383] - Main navbar
 /// @prop {Color} container-background [#72C9DD] - Main background
 /// @prop {Color} copy [#000000] - Body copy
 $ui: (
@@ -44,9 +44,9 @@ $ui: (
   "link-visited": "purple",
   "alert": "lightred",
   "success": "green",
-  "sidebar": "paleblue",
-  "sidebar-text": "lightblue",
-  "sidebar-link": "paleblue",
+  "navbar": "paleblue",
+  "navbar-text": "lightblue",
+  "navbar-link": "paleblue",
   "footer": "paleblue",
   "footer-link": "paleblue",
   "container-background": "lightblue",

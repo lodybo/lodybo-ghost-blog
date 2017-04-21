@@ -1,22 +1,15 @@
 /**
-  * All the styles for the sidebar
+  * All the styles for the navbar
 */
 
-.sidebar {
+.navbar {
   @include span-columns(12);
-  background-color: lighten("sidebar", 0);
-  height: 140px;
+  background-color: lighten("navbar", 0);
+  height: 120px;
   padding: 10px 35px;
 
-  @media (min-width: 800px) {
-    @include span-columns(3);
-    @include omega();
-    height: 100%;
-  }
-}
-
 .branding {
-    color: lighten("sidebar-text", 75);
+    color: lighten("navbar-text", 75);
     margin-bottom: 10px;
 
     h1 {
@@ -32,27 +25,6 @@
         height: 30px;
         margin-right: 10px;
         vertical-align: sub;
-    }
-
-    @media(min-width: 800px) {
-        display: block;
-        text-align: center;
-        margin-bottom: 0;
-
-        img {
-            height: auto;
-            margin-right: 0;
-            vertical-align: initial;
-        }
-
-        h1 {
-            font-size: 3em;
-            display: block;
-        }
-
-        p {
-            display: block;
-        }
     }
 
     @media (min-width: 300px) {
@@ -83,7 +55,7 @@
 
     a,
     a:visited {
-        color: darken("sidebar-link", 50%);
+        color: darken("navbar-link", 50%);
     }
 
     li {
@@ -134,64 +106,6 @@
 
         li {
             display: inline;
-        }
-    }
-
-    @media(min-width: 800px) {
-        display: block;
-
-        li {
-            display: block;
-            margin-right: 0;
-        }
-
-        .about,
-        .writings,
-        .contact {
-            font-size: 1.5em;
-        }
-
-        .about {
-            white-space: nowrap;
-        }
-
-        h3 {
-            padding: .5em 1.25em;
-            margin: 0 0 0 -1em;
-        }
-
-        h3:hover {
-            .about::after,
-            .writings::after,
-            .contact::after {
-                margin-left: .75em;
-                opacity: 1;
-            }
-        }
-    }
-
-    @media(min-width: 1226px) {
-        .about,
-        .writings,
-        .contact {
-            &::after {
-                font-family: "FontAwesome";
-                transition: all .4s ease;
-                opacity: 0;
-                margin-left: .5em;
-            }
-        }
-
-        .about::after {
-            content: "\f007";
-        }
-
-        .writings::after {
-            content: "\f02d";
-        }
-
-        .contact::after {
-            content: "\f0e0";
         }
     }
 }
