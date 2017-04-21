@@ -24,10 +24,20 @@
 
         var content = $(".js-content");
 
-        var contentTop = content.offset().top;
-        var contentHeight = content.height();
+        // Only do this, if the content outstretches the window
+        // Otherwise, make it the height of the window
+        if (content.height() > window.innerHeight) {
+            var contentTop = content.offset().top;
+            var contentHeight = content.height();
 
-        sidebar.innerHeight(contentTop + contentHeight);
+            sidebar.innerHeight(contentTop + contentHeight);
+        } else {
+            var footer = $(".js-footer");
+            var footerHeight = footer.outerHeight(true); // Include margins
+            var windowHeight = window.innerHeight;
+
+            sidebar.outerHeight(windowHeight - footerHeight);
+        }
     }
 
     $(document).ready(function () {

@@ -12,9 +12,9 @@ html {
   box-sizing: inherit;
 }
 
-html,
 .container {
-  display: inline-block;
+  @include row();
+  margin-bottom: 105px; // Footer
 }
 
 h1,
@@ -34,6 +34,7 @@ body {
   color: color("copy");
   font-family: font("body-copy");
   height: 100%;
+  position: relative;
 }
 
 a {
