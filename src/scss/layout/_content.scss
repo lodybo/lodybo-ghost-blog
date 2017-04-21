@@ -1,10 +1,7 @@
 .content {
-    @include span-columns(12);
+    @include span-columns(8);
+    @include shift(2);
     @include omega();
-}
 
-@media (min-width: 800px) {
-    .content {
-        @include span-columns(9);
-    }
+    margin-top: 2%;
 }
