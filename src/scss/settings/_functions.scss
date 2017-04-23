@@ -9,8 +9,7 @@
   // Let's see if the primary map has our $color
   @if (map-has-key($colors, $color)) {
     @return map-get($colors, $color);
-  } @else
-  {
+  } @else {
     // No, it hasn't. Maybe our UI map?
     @if (map-has-key($ui, $color))
     {
