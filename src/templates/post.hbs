@@ -18,6 +18,7 @@
       {{else}}
         <div class="post article {{post_class}}">
       {{/has}}
+      <div class="post-header">
         <h1 class="post-title">
           <a href="{{url}}">{{title}}</a>
         </h1>
@@ -27,7 +28,9 @@
           <li class="permalink"><a href="{{url}}">Permalink</a></li>
           <li class="category">{{tags separator=", "}}</li>
         </ul>
+      </div>
 
+      <div class="post-content">
         {{content}}
       </div>
     </div>

@@ -1,9 +1,6 @@
 .page,
 .posts {
-    @include pad();
-
-    background-color: opacify("white", 25);
-	margin-top: 2.5%;
+    margin-top: 2.5%;
     margin: 4%;
 
     @media(min-width: 800px) {
@@ -40,6 +37,11 @@
         margin: 0;
         text-transform: uppercase;
     }
+}
+
+.post-header {
+    margin-bottom: 35px;
+    text-align: center;
 }
 
 .post-meta {
@@ -117,6 +119,11 @@
             color: color("green");
         }
     }
+}
+
+.post-content {
+    @include pad();
+    background-color: opacify("white", 50);
 }
 
 .post-image {
