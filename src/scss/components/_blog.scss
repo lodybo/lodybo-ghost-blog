@@ -20,28 +20,33 @@
         opacity: .5;
     }
 
-    &.article .post-title a::after {
-        content: "\f15c";
-    }
-
-    &.tutorial .post-title a::after {
-        content: "\f121";
-    }
-
-    &.video .post-title a::after {
-        content: "\f04b";
-    }
-
     .post-title {
-        font-size: 3em;
+        font-size: 2em;
         margin: 0;
         text-transform: uppercase;
+
+        @media (min-width: 400px) {
+            font-size: 3em;
+        }
+
+        @media (min-width: 700px) {
+            font-size: 4em;
+        }
+
+        @media (min-width: 800px) {
+            font-size: 5em;
+        }
     }
 }
 
 .post-header {
     margin-bottom: 35px;
     text-align: center;
+
+    h1 a,
+    h1 a:visited {
+        color: color("post-heading");
+    }
 }
 
 .post-meta {
