@@ -25,8 +25,23 @@
 
   <body>
     <div class="container">
-      <div class="navbar js-navbar">
-        <img src="{{asset 'images/ava.png'}}" />
+      <div id="menu" class="navbar js-navbar">
+        <div class="avatar">
+          <a href="#menu"><img src="{{asset 'images/ava.png'}}" /></a>
+        </div>
+
+        <div class="menu">
+          <h1>Writings and ramblings of a front-end developer</h1>
+
+          <ul class="mini-nav">
+            <li class="mini-nav-item">
+              <a class="mini-nav-item-link" href="#">Posts</a>
+            </li>
+            <li class="mini-nav-item">
+              <a class="mini-nav-item-link" href="https://lodybo.nl">Lodybo . nl</a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       {{{body}}}

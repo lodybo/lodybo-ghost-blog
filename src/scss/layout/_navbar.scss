@@ -6,8 +6,56 @@
   @include span-columns(12);
   height: 120px;
   padding: 10px 35px;
+  position: relative;
 
+  .avatar,
   img {
       height: 100%;
+  }
+
+  .avatar {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .menu {
+    float: left;
+    display: none;
+    z-index: 10;
+
+    font-family: font("navbar");
+    color: color("navbar-text");
+
+    h1,
+    h2 {
+      margin: 0;
+
+      font-family: font("navbar");
+      font-weight: normal;
+    }
+
+    .mini-nav {
+      padding: 0;
+    }
+
+    .mini-nav-item {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    .mini-nav-item-link,
+    .mini-nav-item-link:visited {
+      background: color("navbar-text");
+      padding: 5px 10px;
+      color: color("navbar-link");
+    }
+  }
+
+  &:target {
+    background: color("navbar");
+
+    .menu {
+      display: inline;
+    }
   }
 }

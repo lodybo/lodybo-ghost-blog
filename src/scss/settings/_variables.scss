@@ -51,13 +51,11 @@ $ui: (
   "footer-link": "paleblue",
   "container-background": "lightblue",
   "copy": "black",
-  "menu-hover": "lightblue",
   "button-background": "deepblue",
   "button-background-success": "green",
   "button-background-danger": "lightred",
   "button-copy": "darkbrown",
   "post-heading": "paleblue",
-  "logo-border-1": "paleblue",
   "twitter": #55ACEE,
   "linkedin": #0077B5,
   "github": #4183C4
@@ -71,5 +69,6 @@ $ui: (
 $fonts: (
   "heading": unquote("'Source Sans Pro', sans-serif"),
   "body-copy": unquote("'Roboto Slab', serif"),
-  "button": unquote("'Source Sans Pro', sans-serif")
+  "button": unquote("'Source Sans Pro', sans-serif"),
+  "navbar": unquote("'Roboto Slab', serif")
 );
