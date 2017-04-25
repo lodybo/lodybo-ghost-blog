@@ -57,6 +57,7 @@ $ui: (
   "button-copy": "darkbrown",
   "post-heading": "paleblue",
   "navbar-menu": "lightblue",
+  "blog-heading": "darkbrown",
   "twitter": #55ACEE,
   "linkedin": #0077B5,
   "github": #4183C4
@@ -68,6 +69,7 @@ $ui: (
 /// @prop {Font} body-copy [Roboto Slab, serif] - Body copy, like posts or articles or generic content
 /// @prop {Font} button [Source Sans Pro, sans-serif] - Font for the buttons
 $fonts: (
+  "blog-heading": unquote("'Roboto Slab', serif"),
   "heading": unquote("'Source Sans Pro', sans-serif"),
   "body-copy": unquote("'Roboto Slab', serif"),
   "button": unquote("'Source Sans Pro', sans-serif"),

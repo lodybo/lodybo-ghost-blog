@@ -1,4 +1,8 @@
 .blog-heading {
+    text-align: center;
+    padding: 0 40px;
+    margin-top: 30px;
+
     .menu-icon {
         font-size: 1.5em;
         position: fixed;
@@ -10,6 +14,19 @@
         &:visited {
             color: color("link");
         }
+    }
+
+    img {
+        height: 150px;
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    h1,
+    h2 {
+        font-family: font("blog-heading");
+        color: color("blog-heading");
+        font-weight: normal;
     }
 }
 
