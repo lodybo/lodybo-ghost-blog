@@ -7,25 +7,25 @@
   @include omega();
 
   min-height: 120px;
-  position: relative;
+  z-index: 10;
+  background: color("navbar");
+  position: fixed;
+  top: -500px;
+
+  transition: top .2s ease-in-out;
+
+  .close {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    font-size: 2em;
+    color: color("white");
+  }
 
   .avatar {
     margin: 25px auto;
     height: 100px;
     width: 100px;
-  }
-
-  .nav-wrapper {
-    display: none;
-    z-index: 10;
-
-    .close {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      font-size: 2em;
-      color: color("white");
-    }
   }
 
   .copy {
@@ -59,7 +59,7 @@
     display: inline-block;
     padding: 10px;
     width: 49%;
-    border: color("navbar-text") solid 1px;
+    border: color("navbar-menu") solid 1px;
     border-bottom: 0;
 
     @media (max-width: 215px) {
@@ -70,7 +70,7 @@
     @media (min-width: 650px) {
       width: 40%;
       border: 0;
-      background-color: color("navbar-text");
+      background-color: color("navbar-menu");
     }
   }
 
@@ -86,10 +86,6 @@
   }
 
   &:target {
-    background: color("navbar");
-
-    .nav-wrapper {
-      display: block;
-    }
+    top: 0;
   }
 }
