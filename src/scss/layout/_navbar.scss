@@ -4,6 +4,8 @@
 
 .navbar {
   @include span-columns(12);
+  @include omega();
+
   min-height: 120px;
   position: relative;
 
@@ -13,7 +15,7 @@
     width: 100px;
   }
 
-  .menu {
+  .copy {
     display: none;
     z-index: 10;
     text-align: center;
@@ -33,24 +35,49 @@
 
   .mini-nav {
     padding: 0;
+    margin-bottom: 0;
+
+    @media (min-width: 650px) {
+      padding: initial;
+      margin-bottom: initial;
+    }
   }
 
   .mini-nav-item {
-    display: inline;
-    margin-right: 15px;
+    font-family: font("mini-nav-item");
+    display: inline-block;
+    padding: 10px;
+    width: 49%;
+    border: color("navbar-text") solid 1px;
+    border-bottom: 0;
+
+    @media (max-width: 215px) {
+      width: 100%;
+      display: block;
+    }
+
+    @media (min-width: 650px) {
+      width: 40%;
+      border: 0;
+      background-color: color("navbar-text");
+    }
   }
 
   .mini-nav-item-link,
   .mini-nav-item-link:visited {
-    background: color("navbar-text");
-    padding: 5px 10px;
-    color: color("navbar-link");
+    width: 100%;
+    display: inline-block;
+    color: color("navbar-text");
+
+    @media (min-width: 650px) {
+      color: color("navbar-link");
+    }
   }
 
   &:target {
     background: color("navbar");
 
-    .menu {
+    .copy {
       display: block;
     }
   }
