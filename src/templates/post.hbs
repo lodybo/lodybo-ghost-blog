@@ -24,6 +24,13 @@
         </h1>
         
         <ul class="post-meta">
+          <li class="author">
+            {{#author}}
+              Written by: 
+              <img src="{{image}}" height="25" width="auto" /> 
+              {{name}}
+            {{/author}}
+          </li>
           <li class="date">Published on <span>{{date format="MMMM DD, YYYY"}}</span></li>
           <li class="permalink"><a href="{{url}}">Permalink</a></li>
           <li class="category">{{tags separator=", "}}</li>
