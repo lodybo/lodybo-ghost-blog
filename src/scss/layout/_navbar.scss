@@ -6,7 +6,7 @@
   @include span-columns(12);
   @include omega();
 
-  min-height: 120px;
+  min-height: 150px;
   z-index: 10;
   background: color("navbar");
   position: fixed;
@@ -22,6 +22,25 @@
     color: color("white");
   }
 
+  .branding {
+    @include span-columns(12);
+    @include shift(0);
+    margin-bottom: 25px;
+
+    @media (min-width: 660px) {
+      @include span-columns(7);
+      @include shift(1);
+    }
+  }
+
+  .full-view-only {
+    display: none;
+
+    @media (min-width: 660px) {
+      display: block;
+    }
+  }
+
   .avatar {
     margin: 25px auto;
     height: 100px;
@@ -35,42 +54,68 @@
     font-family: font("navbar");
     color: color("navbar-text");
 
+    a,
+    a:visited {
+      color: color("navbar-link");
+    }
+
     h1,
-    h2 {
+    h2, {
       margin: 0;
 
       font-family: font("navbar");
       font-weight: normal;
     }
+
+    h1 { margin-bottom: 25px; }
+
+    h2 { color: darken("navbar-text", 75%); }
   }
 
   .mini-nav {
+    @include span-columns(12);
     padding: 0;
     margin-bottom: 0;
+    margin-top: 0;
 
-    @media (min-width: 650px) {
+    li { list-style: none; }
+
+    h3 {
+      font-family: font("navbar");
+      font-weight: normal;
+      color: darken("navbar-text", 75%);
+      font-size: 1.25em;
+    }
+
+    @media (min-width: 660px) {
+      @include span-columns(4);
       padding: initial;
       margin-bottom: initial;
+      margin-top: 50px;
     }
   }
 
   .mini-nav-item {
     font-family: font("mini-nav-item");
+    font-weight: normal;
     display: inline-block;
     padding: 10px;
     width: 49%;
     border: color("navbar-menu") solid 1px;
     border-bottom: 0;
+    margin-bottom: 0;
 
     @media (max-width: 215px) {
       width: 100%;
       display: block;
     }
 
-    @media (min-width: 650px) {
-      width: 40%;
+    @media (min-width: 660px) {
+      margin-bottom: 15px;
+      width: 80%;
       border: 0;
       background-color: color("navbar-menu");
+      display: block;
     }
   }
 
@@ -80,8 +125,8 @@
     display: inline-block;
     color: color("navbar-text");
 
-    @media (min-width: 650px) {
-      color: color("navbar-link");
+    @media (min-width: 660px) {
+      color: color("white");
     }
   }
 

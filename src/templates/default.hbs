@@ -26,19 +26,23 @@
   <body>
     <div class="container">
       <div id="menu" class="navbar js-navbar">
-        <div class="avatar">
-          <a href="#menu"><img src="{{asset 'images/ava.png'}}" /></a>
-        </div>
-
         <a class="close" href="#" aria-label="Close this menu">
           <i class="fa fa-times" aria-hidden="false"></i>
         </a>
 
-        <div class="copy">
-          <h1>Ramblings of a front-end developer</h1>
+        <div class="branding">
+          <div class="avatar">
+            <a href="#menu"><img src="{{asset 'images/ava.png'}}" /></a>
+          </div>
+
+          <div class="copy">
+            <h1>Ramblings of a front-end developer</h1>
+            <h2>Hi! My name is <a href="https://www.lodybo.nl">Lody Borgers</a>, and this is my blog.</h2>
+          </div>
         </div>
 
         <ul class="mini-nav">
+          <li class="full-view-only"><h3>Curious about me?</h3></li>
           <li class="mini-nav-item">
             <a class="mini-nav-item-link" href="#">More posts</a>
           </li>
