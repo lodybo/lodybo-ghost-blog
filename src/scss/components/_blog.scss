@@ -1,98 +1,202 @@
+.blog-heading {
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
+
+    text-align: center;
+    padding: 0 40px;
+    margin-top: 30px;
+
+    .menu-icon {
+        font-size: 1.5em;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1;
+        color: color("link");
+
+        &:visited {
+            color: color("link");
+        }
+    }
+
+    img {
+        display: none;
+        height: 150px;
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    h1,
+    h2 {
+        display: none;
+        font-family: font("blog-heading");
+        color: color("blog-heading");
+        font-weight: normal;
+    }
+
+    @media(min-width: 660px) {
+        img,
+        h1,
+        h2 {
+            display: block;
+        }
+    }
+
+    &.hidden {
+        opacity: 0;
+    }
+}
+
+.page,
+.posts {
+    @include span-columns(12);
+
+    @media(min-width: 800px) {
+        @include span-columns(10);
+        @include shift(1);
+    }
+}
+
 .post {
-    
-    &.article .post-title a:after,
-    &.tutorial .post-title a:after,
-    &.video  .post-title a:after {
+    &.article .post-title a::after,
+    &.tutorial .post-title a::after,
+    &.video  .post-title a::after {
         font-family: "FontAwesome";
         margin-right: .5em;
         text-decoration: none;
         float: right;
         opacity: .5;
     }
-    
-    &.article .post-title a:after {
-        content: "\f15c";
-    }
-    
-    &.tutorial .post-title a:after {
-        content: "\f121";
-    }
-    
-    &.video .post-title a:after {
-        content: "\f04b";
-    }
-    
-	.post-title {
-		font-size: 3em;
-		margin-bottom: 0;
-		text-transform: uppercase;
-	}
 
-	.post-meta {
-		list-style: none;
-		margin: 0;
-		padding: 0;
+    .post-title {
+        font-size: 2em;
+        margin: 0;
+        text-transform: uppercase;
 
-		.date,
-        .permalink {
-			display: inline;
-		}
-        
-        a {
-            color: color("copy");
-            text-decoration: none;
-            transition: all .2s ease;
+        @media (min-width: 400px) {
+            font-size: 3em;
         }
-        
-        
-	}
-    
-    .date a:before {
+
+        @media (min-width: 700px) {
+            font-size: 4em;
+        }
+
+        @media (min-width: 800px) {
+            font-size: 5em;
+        }
+    }
+}
+
+.post-header {
+    margin-bottom: 35px;
+    text-align: center;
+
+    h1 a,
+    h1 a:visited {
+        color: color("post-heading");
+    }
+}
+
+.post-meta {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .author {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+
+        img {
+            vertical-align: text-bottom;
+            margin-right: 5px;
+        }
+
+        @media (min-width: 660px) {
+            display: none;
+        }
+    }
+
+    .date,
+    .permalink {
+        display: inline;
+    }
+
+    a {
+        color: color("copy");
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+
+    .date span::before {
         content: "\f017";
         font-family: "FontAwesome";
-        margin-right: .5em;
+        margin-right: .2em;
+        margin-left: .2em;
     }
-    
-    .date:hover {
-        a {
-            color: color("purple");
-        }
-        
-        a:before {
-            color: color("green");
-        }
-    }
-    
-    .permalink a:before {
+
+    .permalink a::before {
         content: "\f0c1";
         font-family: "FontAwesome";
         margin-left: 1em;
         margin-right: .5em;
     }
-    
+
+    .permalink:hover {
+        a {
+            color: color("purple");
+        }
+
+        a::before {
+            color: color("green");
+        }
+    }
+
     .category {
-        &:before {
+        &::before {
             content: "\f02b";
             font-family: "FontAwesome";
             font-size: .9em;
             margin-right: .5em;
         }
-        
-        &.single:before {
+
+        &.single::before {
             content: "\f02b";
         }
-        
-        &.multiple:before {
+
+        &.multiple::before {
             content: "\f02c";
         }
-        
-        a:before {
+
+        a::before {
             content: "#";
         }
-        
+
         a {
-            color: lighten("black", 25);
-            font-size: .9em;
+            font-size: .95em;
         }
     }
+
+    .category:hover {
+        a {
+            color: color("purple");
+        }
+
+        &::before,
+        &::before {
+            color: color("green");
+        }
+    }
+}
+
+.post-content,
+.posts-list {
+    @include pad();
+    background-color: opacify("white", 50);
+    margin-bottom: 25px;
+}
+
+.post-image {
+    @include row();
+    @include span-columns(12);
+    @include omega();
 }

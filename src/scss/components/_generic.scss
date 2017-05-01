@@ -7,14 +7,14 @@ html {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
-html,
 .container {
-  height: 100%;
+  @include row();
+  margin-bottom: 105px; // Footer
 }
 
 h1,
@@ -28,10 +28,22 @@ h6 {
 }
 
 body {
+  @include outer-container(100%);
+
   background-color: lighten("container-background", 75);
   color: color("copy");
   font-family: font("body-copy");
   height: 100%;
+  position: relative;
+}
+
+a {
+  color: color("link");
+  text-decoration: none;
+}
+
+a:visited {
+  color: color("link-visited");
 }
 
 button,
@@ -41,11 +53,11 @@ button,
   background-color: lighten("button-background", 50);
   color: color("button-copy");
   font-family: font("button");
-  
+
   transition: all .4s ease;
-  
+
   &:hover {
-     background-color: lighten("button-background", 25); 
+     background-color: lighten("button-background", 25);
      color: darken("button-copy", 25);
   }
 }

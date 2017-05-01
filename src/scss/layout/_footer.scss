@@ -1,0 +1,25 @@
+footer {
+    @include row();
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    background-color: color("footer");
+    margin-top: 25px;
+
+    a,
+    a:visited {
+        color: darken("footer-link", 75%);
+    }
+
+    .wrapper {
+        @include span-columns(8);
+        @include shift(2);
+
+        @media(min-width: 800px) {
+            @include span-columns(6);
+            @include shift(4);
+        }
+    }
+}
