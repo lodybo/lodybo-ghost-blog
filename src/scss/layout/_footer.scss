@@ -13,7 +13,12 @@ footer {
     }
 
     .wrapper {
-        @include span-columns(6);
-        @include shift(4);
+        @include span-columns(8);
+        @include shift(2);
+
+        @media(min-width: 800px) {
+            @include span-columns(6);
+            @include shift(4);
+        }
     }
 }
