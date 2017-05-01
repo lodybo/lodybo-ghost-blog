@@ -181,9 +181,11 @@
     }
 }
 
-.post-content {
+.post-content,
+.posts-list {
     @include pad();
     background-color: opacify("white", 50);
+    margin-bottom: 25px;
 }
 
 .post-image {

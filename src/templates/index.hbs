@@ -4,14 +4,14 @@
     {{#foreach posts}}
       {{#has tag="#video, #tutorial"}}
         {{#has tag="#video"}}
-          <div class="post video {{post_class}}">
+          <div class="post posts-list video {{post_class}}">
         {{else}}
           {{#has tag="#tutorial"}}
-            <div class="post tutorial {{post_class}}">
+            <div class="post posts-list tutorial {{post_class}}">
           {{/has}}
         {{/has}}
       {{else}}
-        <div class="post article {{post_class}}">
+        <div class="post posts-list article {{post_class}}">
       {{/has}}
         <h1 class="post-title">
           <a href="{{url}}">{{title}}</a>
