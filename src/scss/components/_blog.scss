@@ -97,6 +97,14 @@
     padding: 0;
 
     .author {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+
+        img {
+            vertical-align: text-bottom;
+            margin-right: 5px;
+        }
+
         @media (min-width: 660px) {
             display: none;
         }
