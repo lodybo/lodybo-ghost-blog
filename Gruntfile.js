@@ -7,7 +7,11 @@ module.exports = function (grunt) {
 				sourceMap: true,
 				includePaths: require("node-neat").includePaths
 			},
-			dist: {
+			dev: {
+				src: ["src/scss/lodybo.scss"],
+				dest: "build/content/themes/lodybo-theme/assets/css/styles.css"
+			},
+			prod: {
 				src: ["src/scss/lodybo.scss"],
 				dest: "dist/lodybo-theme/assets/css/styles.css"
 			}
@@ -21,9 +25,13 @@ module.exports = function (grunt) {
 				],
 				map: true
 			},
-			dist: {
-				src: ["<%= sass.dist.dest %>"],
-				dest: "<%= sass.dist.dest %>"
+			dev: {
+				src: ["<%= sass.dev.dest %>"],
+				dest: "<%= sass.dev.dest %>"
+			},
+			prod: {
+				src: ["<%= sass.prod.dest %>"],
+				dest: "<%= sass.prod.dest %>"
 			}
 		},
 		sassdoc: {
@@ -97,7 +105,7 @@ module.exports = function (grunt) {
 					beautify: true
 				},
 				files: {
-					"dist/lodybo-theme/assets/js/scripts.min.js": ["src/js/*.js", "!src/js/*.spec.js"]
+					"build/content/themes/lodybo-theme/assets/js/scripts.min.js": ["src/js/*.js", "!src/js/*.spec.js"]
 				}
 			}
 		},
@@ -110,7 +118,20 @@ module.exports = function (grunt) {
 			jsdoc: "docs/jsdoc"
 		},
 		copy: {
-			images: {
+			data : {},
+			"ghost-configuration": {
+				expand: true,
+				flatten: true,
+				src: "assets/configuration/config.js",
+				dest: "build/"
+			},
+			"ghost-data": {
+				expand: true,
+				flatten: true,
+				src: "assets/data/ghost-dev.db",
+				dest: "build/content/data"
+			},
+			"images-prod": {
 				files: [{
 					expand: true,
 					flatten: true,
@@ -118,7 +139,25 @@ module.exports = function (grunt) {
 					dest: "dist/lodybo-theme/assets/images"
 				}]
 			},
-			templates: {
+			"images-dev": {
+				files: [{
+					expand: true,
+					flatten: true,
+					src: ["assets/images/**/*.jpg", "assets/images/**/***/.jpeg", "assets/images/**/*.png"],
+					dest: "build/content/themes/lodybo-theme/assets/images"
+				}]
+			},
+			"templates-dev": {
+				files: [
+					{
+						expand: true,
+						flatten: true,
+						src: ["src/templates/**/*.hbs"],
+						dest: "build/content/themes/lodybo-theme"
+					}
+				]
+			},
+			"templates-prod": {
 				files: [
 					{
 						expand: true,
@@ -139,7 +178,7 @@ module.exports = function (grunt) {
             },
             handlebars: {
                 files: ["src/**/*.hbs"],
-				tasks: ["copy:templates"]
+				tasks: ["copy:templates-dev"]
 			},
 			js: {
 				files: ["src/js/**/*.js"],
@@ -165,7 +204,8 @@ module.exports = function (grunt) {
 		console.log("- Theme version: ", themePackage.version);
 	});
 
-	grunt.registerTask("scss", ["scsslint", "sass", "postcss", "sassdoc"]);
+	grunt.registerTask("scss:dev", ["scsslint", "sass:dev", "postcss:dev", "sassdoc"]);
+	grunt.registerTask("scss:prod", ["scsslint", "sass:prod", "postcss:prod", "sassdoc"]);
 
 	grunt.registerTask("js", ["test", "uglify:production"]);
 
@@ -192,7 +232,7 @@ module.exports = function (grunt) {
 	grunt.registerTask("serve", ["watch"]);
 
 	grunt.registerTask("test", ["eslint:production" /*, "karma:unit"*/]);
-	grunt.registerTask("build", ["clean:build", "scss", "js", "copy:images", "copy:templates", "create-theme-package"]);
+	grunt.registerTask("build", ["clean:build", "scss:dev", "js", "copy:ghost-configuration", "copy:ghost-data", "copy:images-dev", "copy:templates-dev", "create-theme-package"]);
 
 	grunt.registerTask("default", ["serve"]);
 
